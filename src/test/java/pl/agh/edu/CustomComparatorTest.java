@@ -30,7 +30,8 @@ public class CustomComparatorTest {
         data1.setMale(true);
         data2.setMale(false);
 
-        CustomComparatorReflUtils<ExampleData,EasyClassifier> comparator = new CustomComparatorReflUtils<ExampleData,EasyClassifier>(data1,data2,EasyClassifier.class);
+        CustomComparatorReflUtils<ExampleData, EasyClassifier> comparator
+                = new CustomComparatorReflUtils<ExampleData, EasyClassifier>(data1, data2, EasyClassifier.class);
         comparator
                 .addClassifier("name", EasyClassifier.personalInfo, EasyClassifier.names)
                 .addClassifier("male", EasyClassifier.names)
@@ -40,7 +41,7 @@ public class CustomComparatorTest {
         Assert.assertTrue(result.areAllFieldsEquals(EasyClassifier.personalInfo));
         Assert.assertFalse(result.areAllFieldsEquals(EasyClassifier.names));
 
-        Assert.assertEquals(result.getListOfDifferentFields(EasyClassifier.names).size(),2);
+        Assert.assertEquals(result.getListOfDifferentFields(EasyClassifier.names).size(), 2);
 
         System.out.println(result);
     }

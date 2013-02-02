@@ -19,12 +19,12 @@ public class CustomComparatorReflUtils<T, E extends Enum<E>> {
         resultFieldsMap = initFieldsMap();
     }
 
-    public CustomComparatorReflUtils<T, E> addClassifier(String fieldName, E... classifiers) {
+    public final CustomComparatorReflUtils<T, E> addClassifier(String fieldName, E... classifiers) {
         inputClassifiers.put(fieldName, classifiers);
         return this;
     }
 
-    public ClassificationResult compare() {
+    public final ClassificationResult compare() {
         throwExceptionOnNullObjects();
         for (String fieldName : inputClassifiers.keySet()) {
             Object field1value = reflectUtils.getFieldValue(obj1, fieldName);
